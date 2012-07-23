@@ -1,2 +1,7 @@
 source :rubygems
-gem 'sqlite3'
+
+gem 'datamapper'
+gem 'data_objects'
+gem 'do_jdbc'
+gem 'jdbc-sqlite3'
+gem 'dm-sqlite-adapter'

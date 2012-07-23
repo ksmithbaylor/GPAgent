@@ -1,19 +1,15 @@
-require 'sqlite3'
 require 'course'
 
 class Semester
-  attr_accessor :courses, :season, :year, :school
-  
-  def initialize(season, year, school)
-    @courses = []
-    @season = season
-    @year = year
-    @school = school
-  end
-  
-  def add_course(name, hours, grade = 4.0, counts = true)
-    @courses << Course.new(name, hours, grade, counts)
-  end
+  include DataMapper::Resource
+
+  property :id,     Serial
+  property :season, String
+  property :year,   Integer
+  property :school, String
+
+  has n, :courses
+  belongs_to :student
   
   def gpa
     attempted_hours = 0
